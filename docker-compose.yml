@@ -1,0 +1,16 @@
+version: '3'
+services:
+  versus:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TEST_ENDPOINT=http://erigon-mainnet:8545/
+    ports:
+      - "8080:8080"
+    networks:
+      - blockchain-nodes
+
+networks:
+  blockchain-nodes:
+    external: true
